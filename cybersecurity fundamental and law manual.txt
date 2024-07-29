@@ -1,0 +1,1032 @@
+Experiment 1: Demonstrate Network packet analysis using
+WireShark tool.
+1. Aim: Study of packet sniffer tool Wireshark
+2. Objectives: Identify different packets moving in/out of network using packet sniffer for
+network analysis.
+3. Hardware / Software Required: Wireshark.
+4. Theory:
+Wireshark, a network analysis tool formerly known as Ethereal, captures packets in real time
+and display them in human-readable format. Wireshark includes filters, color-coding and other
+features that let you dig deep into network traffic and inspect individual packets.
+Applications:
+•
+
+Network administrators use it to troubleshoot network problems
+
+•
+
+Network security engineers use it to examine security problems
+
+•
+
+Developers use it to debug protocol implementations
+
+•
+
+People use it to learn network protocol internals beside these examples can be helpful
+in many other situations too.
+
+As soon as you click the interface‘s name, you‘ll see the packets start to appear in real time.
+Wireshark captures each packet sent to or from your system. If you‘re capturing on a wireless
+interface and have promiscuous mode enabled in your capture options, you‘ll also see other the
+other packets on the network. Wireshark uses colours to help you identify the types of traffic
+at a glance. By default, green is TCP traffic, dark blue is DNS traffic, light blue is UDP traffic,
+and black identifies TCP packets with problems — for example, they could have been delivered
+out-of-order.
+Capturing Packets: After downloading and installing wireshark, you can launch it and click the
+name of an interface under Interface List to start capturing packets on that interface. For
+example, if you want to capture traffic on the wireless network, click your wireless interface.
+You can configure advanced features by clicking Capture Options.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+3
+
+5. Methodology:
+To analyse network protocol packets follow steps given below:
+1.
+
+Generate network traffic using browser.
+
+2.
+
+Open wireshark.
+
+3.
+
+Capture network data .
+
+4.
+
+Use display filter to segregate network protocol packets.
+
+5.
+IP.
+
+Get required information corresponding different protocol such as Http,DNS, TCP and
+
+To get Machine details open window command prompt and type >> Ipconfig/all.
+To get Website details open window command prompt and type >> ping (for example:
+www.sahyadri.edu.in)
+
+HTTP and TCP Packet header:
+To analyze HTTP packet type http in display filter of wireshark. For selected http packet the
+details regarding packet selected appears in third window gride.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+4
+
+Domain Name Server :
+To analyze DNS packet , type “dns” in display filter of wireshark. For selected dns packet the
+details regarding packet selected appears in third window gride.
+Window cmd prompt command:
+• Ipconfig / flushdns (clear)
+• Ipconfig /displaydns
+• ping (for example: www.sahyadri.edu.in)
+
+We can see that DNS query generated and response coming to our machine .
+DNS Query message observed:
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+5
+
+You‘ll see the full conversation between the client and the server.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+6
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+7
+
+Close the window and you‘ll find a filter has been applied automatically — Wireshark is
+showing you the packets that make up the conversation.
+
+6. Conclusion:
+In this experiment we analyze packet sniffing tool that monitor network traffic transmitted
+between legitimate users or in the network. The packet sniffer is network monitoring tool. It is
+opted for network monitoring, traffic analysis, troubleshooting, Packet grapping, message,
+protocol analysis, penetration testing and many other purposes.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+8
+
+Experiment 2: Demonstrate Web penetration testing using BURP
+Suite tool.
+1. Aim: The aim is to provide a foundation in performing security testing of web applications
+using Burp Suite.
+2. Objectives: Understand Burp Suite and its tools for web application testing process.
+3. Hardware / Software Required: BURP suite tool
+4. Theory:
+Burp Suite created by PortSwigger Web Security is a Java-based integrated software platform
+of tools for performing security testing of web applications. Its various tools work seamlessly
+together to support the entire testing process, from initial mapping and analysis of an
+application's attack surface, through to finding and exploiting security vulnerabilities. This
+includes key components such as: Proxy, Spider, Scanner, Intruder, Repeater and Sequencer.
+5. Methodology:
+•
+
+Intercepting Proxy
+
+In Burp Suite, intercepting Proxy lets you inspect and modify traffic between your browser and
+the target application. Therefore, by using Proxy tab in Burp Suite, we can intercept the
+communications between a client (such as a Web browser) and the server. For this, set up your
+browser to use a Proxy (127.0.0.1 on port 8080). (Hint: use: Edit > Preferences> Advanced >
+Network > Settings).
+Go to Burp Suite and in the Proxy tab, set Intercept to on.
+
+Figure 1: BURP suite proxy tab.
+Navigate to the http://tutorialsninja (demo web page) home page. Then switch to Burp Suite.
+Burp Suite proxy should intercept the request. Click forward. Now, go to your browser and
+check if you can see the homepage of tutorialsninja. Now, on the tutorialsninja homepage, click
+on Login/Register and go back to Intercept tab on Burp Suite. Right click and select Send to
+Intruder (Figure 2)
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+9
+
+Figure 2: BURP suite proxy tab and forward tab.
+Now, go to intruder tab and check if you can see the login page (Figure 3). Next identify the
+word/parameters that we are going to change (login). Clear $$ from Cookie but keep them for
+login ($login$).
+
+Figure 3: Intruder tab for logging page.
+Select payloads tab (hint: payloads tab is next to the positions tab) (Figure 4). Go to the
+Intruder>Payloads tab and add some payload words to the list. Hint: type them one by one in
+the box below and then press Add (Figure 4).
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+10
+
+Figure 4: Adding payload list.
+Run the brute-force fuzzer from the Intruder>Start Attack menu on top. The Fuzzing Attack
+window should be displayed and shows the progress (Figure 5). The Request>Raw tab , the
+Results show the Requests which are sent. Next the Response>Raw Tab shows what was
+returned from the web application for each response. The Response>Render shows the
+rendered page as a browser would display it.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+11
+
+Figure 5: Result.
+
+•
+
+Brute Force :
+
+we will crack the username and password on the Web login. In this method, capture a sample
+login for a user (hint: enter a name and a password in the login page on your browser and press
+login) then capture the trace with Burp Suite and send it to Intruder (hint: right click and select:
+Send to Intruder).
+On Intruder>Positions page, from Attack type drop down menu select: Cluster bomb
+Then put fuzzifier around username and password only: $username$, $password$ and clear
+the rest of fuzzifiers. Then Go to Intruder>Payloads page and enter the same user names and
+passwords in two lists.
+Payload set > 1 >
+administrator
+admin
+root
+guest
+Payload set> 2 >
+password
+Password
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+12
+
+123456
+pa$$word
+Then run the brute-force fuzzer from the Intruder>Start Attack menu on top.
+
+6. Conclusion:
+Using Burp Suite tool software platform, we have performed security testing of web
+applications and analysed web application's attack surface and security vulnerabilities.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+13
+
+Experiment 3: Show Network mapping and port scanning using
+Nmap tool.
+1. Aim: Use Nmap to scan open ports, perform OS fingerprinting, do a ping scan, tcp port
+scan, udp port scan, etc.
+2. Objectives: Objective of this module to learn nmap installation & use this to scan
+different ports.
+3. Hardware / Software Required : NMAP Tool
+4.Theory:
+Nmap (Network Mapper) is a security scanner originally written by Gordon Lyon (also known
+by his pseudonym Fyodor Vaskovich) used to discover hosts and services on a computer
+network, thus creating a "map" of the network. To accomplish its goal, Nmap sends specially
+crafted packets to the target host and then analyzes the responses. Unlike many simple port
+scanners that just send packets at some predefined constant rate, Nmap accounts for the
+network conditions (latency fluctuations, network congestion, the target interference with the
+scan) during the run. Also, owing to the large and active user community providing feedback
+and contributing to its features, Nmap has been able to extend its discovery capabilities beyond
+simply figuring out whether a host is up or down and which ports are open and closed; it can
+determine the operating system of the target, names and versions of the listening services,
+estimated uptime, type of device, and presence of a firewall.
+Nmap features include:
+•
+
+Host Discovery – Identifying hosts on a network. For example, listing the hosts
+which respond to pings or have a particular port open.
+
+•
+
+Port Scanning – Enumerating the open ports on one or more target hosts.
+
+•
+
+Version Detection – Interrogating listening network services listening on
+remote devices to determine the application name and version number.
+
+•
+
+OS Detection – Remotely determining the operating system and some hardware
+characteristics of network devices.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+14
+
+5. Methodology:
+Basic commands working in Nmap
+For target specifications:
+nmap <target‘s URL or IP with spaces betweenthem>
+
+For OS detection:
+nmap -O <target-host's URL orIP>
+For version detection:
+nmap -sV <target-host's URL orIP>
+
+After the installation of nmap:> sudo apt-get install nmap
+
+SYN scan is the default and most popular scan option for good reasons. It can be
+performed quickly, scanning thousands of ports per second on a fast network not
+hampered by restrictive firewalls. It is also relatively unobtrusive and stealthy since it never
+completes TCP connections.
+
+FIN scan (-sF)
+Sets just the TCP FIN bit.
+
+-sV (Version detection) : Enables version detection, as discussed above. Alternatively, we can
+use -A, which enables version detection among other things.
+
+-PO protocol list (IP Protocol Ping) :
+The newest host discovery option is the IP protocol ping, which sends IP packets with the
+specified protocol number set in their IP header. The protocol list takes the same format as do
+port lists in the previously discussed TCP, UDP and SCTP host discovery options.
+
+-p port ranges (Only scan specified ports) .
+This option specifies which ports you want to scan and overrides the default. Individual port
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+15
+
+numbers are OK, as are ranges separated by a hyphen (e.g. 1-1023). The beginning and/or
+end values of a range may be omitted, causing Nmap to use 1 and 65535, respectively.
+
+-sO (IP protocol scan) .
+IP protocol scan allows you to determine which IP protocols (TCP, ICMP, IGMP, etc.) are
+supported by target machines. This isn ́t technically a port scan, since it cycles through IP
+protocol numbers rather than TCP or UDP port numbers.
+--open (Show only open (or possibly open) ports) .
+Sometimes you only care about ports you can actually connect to (open ones), and don ́t want
+results cluttered with closed, filtered, and closed|filtered ports.
+
+-p port ranges (Only scan specified ports) .
+This option specifies which ports you want to scan and overrides the default. Individual port
+numbers are OK, as are ranges separated by a hyphen (e.g. 1-1023). The beginning and/or
+end values of a range may be omitted, causing Nmap to use 1 and 65535, respectively.
+
+-sT (TCP connect scan) .
+TCP connect scan is the default TCP scan type when SYN scan is not an option. This is the
+case when a user does not have raw packet privileges or is scanning IPv6 networks. Instead
+of writing raw packets as most other scan types do, Nmap asks the underlying operating
+system to establish a connection with the target machine and port by issuing the connect
+system call. Along with spoofing.
+
+Null scan (-sN):
+Does not set any bits (TCP flag header is 0)
+
+--top-ports <integer of 1 or greater>
+Scans the N highest-ratio ports found in nmap-services file.
+
+-PS port list (TCP SYN Ping) .
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+16
+
+This option sends an empty TCP packet with the SYN flag set. The default destination port is
+80 (configurable at compile time by changing DEFAULT_TCP_PROBE_PORT_SPEC
+innmap.h). Alternate ports can be specified as a parameter. The syntax is the same as for the
+-p except that port type specifiers like T: are not allowed.
+
+nmap –iflist
+host interface and route information with nmap by using ―–iflist‖ option.
+
+6. Conclusion:
+Network scanning provides a wealth of information about the target network, which is valuable
+regardless of whether you're trying to attack the network or protect it from attack. While
+performing a basic scan is a simple matter, the network scanners covered in this experiment
+provide a wide array of options to tweak your scan to achieve the best results. Nmap is used to
+detect IP spoofing and port scanning.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+17
+
+Experiment 4: Implement a code to simulate buffer overflow
+attack.
+1. Aim: Implement a code to simulate buffer overflow attack.
+2. Objectives: Objective of the module Is to check buffer overflow in an NS2 environment
+3. Hardware / Software Required: Stack Guard compiler.
+4. Theory:
+A buffer overflow, or buffer overrun, is an anomaly where a program, while writing
+data to a buffer, overruns the buffer's boundary and overwrites adjacent memory locations. This
+is a special case of the violation of memory safety. A buffer overflow occurs when a program
+or process tries to store more data in a buffer (temporary data storage area) than it was intended
+to hold.
+5. Methodology:
+Buffer overflow:
+Code:
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+char buff[15];
+int pass = 0;
+printf("\n Enter the password : \n");
+gets(buff);
+if(strcmp(buff, "thecorrectpaswd"))
+{
+printf ("\n Wrong Password \n");
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+18
+
+}
+else
+{
+printf ("\n Correct Password \n");
+pass = 1;
+}
+if(pass)
+{
+/* Now Give root or admin rights to user*/
+printf ("\n Root privileges given to the user \n");
+}
+return 0;
+}
+
+Output :
+>>administrator@cyber:~/Desktop/me CS pracs$ gcc -Wall -fno-stack-protector
+bufferoverflow.c -o
+>>bufferoverflow
+The above command deactivates the default GC Compiler's flag which detects Stack
+Smashing
+>>administrator@cyber:~/Desktop/me CS pracs$ ./bufferoverflow
+>>Enter the password :
+thewrong
+Wrong Password
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+19
+
+>>administrator@cyber:~/Desktop/me CS pracs$ ./bufferoverflow
+>>Enter the password :
+thecorrectpaswd
+Correct Password
+Root privileges given to the user
+administrator@cyber:~/Desktop/me CS pracs$ ./bufferoverflow
+Enter the password :
+thewrongpasswordentered
+Wrong Password
+Root privileges given to the user
+
+Here, the entered password length is above the permissible length with wrong contents still
+the user is given the ROOT PRIVILEDGES. This demonstrates the Buffer Overflow.
+
+6. Conclusion:
+Buffer overflow has been the most exploited vulnerability for more than a decade. Buffer
+overflow vulnerabilities are the most common way to gain control of a remote host. Attacker
+can insert and execute attack code. Error is made at program creation, is invisible to user.
+StackGuard is a systematic compiler tool that prevents a broad class of buffer overflow security
+attacks from succeeding.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+20
+
+Experiment 5: Demonstrate of Cryptographic algorithm using
+JCryp tool.
+1. Aim: To demonstrate asymmetric, symmetric crypto algorithm using Jcrypt tool.
+2. Objectives: To understand Cryptographic algorithm using JCryp tool.
+3. Hardware / Software Required: Jcrypt tool software.
+4. Theory:
+JCrypTool – abbreviated as JCT – is a free e-learning software for classical and modern
+cryptology. Cryptology is about techniques and protocols making information available only
+for authorized persons.The CrypTool project aims to explain and visualize cryptography and
+cryptanalysis in an easy and understandable way while still being correct from a scientific point
+of view. Cryptology consists of two parts (fields). The field cryptography: Science of
+encryption systems guaranteeing secure and confidential storage and exchange of information
+(e.g. between computers). The field cryptanalysis : Cryptanalysis is the counter part to
+cryptography and studies theories and techniques for testing and breaking cryptographic
+methods.
+5. Methodology:
+a)Hash Function
+1. Select Indiv. Procedure
+
+Hash
+
+Hash Demonstration
+
+2. Selection of hash Function
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+21
+
+3. Select hash function SHA you get hash code value
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+22
+
+(b) Digital Signatures
+1. Select Digital Signature menu
+
+signature demonstration
+
+2. Step by step signature
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+23
+
+3. Click on open document & select txt file
+
+4. Document is converted in to hexadecimal value & ready to compute hash value
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+24
+
+5. Select Hash function from given list as SHA
+
+6.Click on compute hash value & hash value you will get the hash value
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+25
+
+7.Click on generate key & provide P & Q value for generating prime no
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+26
+
+8. Generate prime no according to algorithm
+
+10. Generate the RSA key & click on encrypt hash value
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+27
+
+11.Check Encrypted HashValue
+
+12. Provide Digital Certificate
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+28
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+29
+
+13. Generate Certificate & Signature
+
+14. Check the Digital Signature & Store the Signature
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+30
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+31
+
+6. Conclusion: Hence we demonstrated asymmetric, symmetric crypto algorithm using
+Jcrypt tool.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+32
+
+Experiment 6: Demonstrate Network reconnaissance using
+WHOIS tool.
+1. Aim: To demonstrate Network reconnaissance using WHOIS tool.
+2. Objectives: To know how to gather information about the networks by using network
+reconnaissance tools.
+3. Hardware / Software Required: WHOIS client
+4. Theory:
+Reconnaissance is the gathering of information about a target prior to launching an attack. Most
+attacks begin by gathering as much information as possible about the target. The whois
+databases are a set of tools that can be used for reconnaissance, and are one of the best sets of
+tools available. They can be used to get detailed information about a domain, and can help you
+gather information about a target. Whois - whois searches for an object in a WHOIS database.
+WHOIS is a query and response protocol that is widely used for querying databases that store
+the registered users of an Internet resource, such as a domain name or an IP address block, but
+is also used for a wider range of other information.
+5. Methodology:
+The whois command looks up the registration record associated with a domain name. This can
+show you more information about who registered and owns a domain name, including their
+contact information. Most modern versions of whois try to guess the right server to ask for the
+specified object. If no guess can be made, whois will connect to whois.networksolutions.com
+for NIC handles or whois.arin.net for IPv4 addresses and network names.
+Examples:
+• Obtaining the domain WHOIS record for computersolutions.com
+• WHOIS record by IP querying
+• Querying WHOIS in google search engine
+WHOIS is a request and response protocol that follows the RFC 3912 specification. A WHOIS
+server listens on TCP port 43 for incoming requests. The domain registrar is responsible for
+maintaining the WHOIS records for the domain names it is leasing. The WHOIS server replies
+with various information related to the domain requested. Of particular interest, we can learn:
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+33
+
+•
+
+Registrar: Via which registrar was the domain name registered?
+
+•
+
+Contact info of registrant: Name, organization, address, phone, among other things.
+(unless made hidden via a privacy service)
+
+•
+
+Creation, update, and expiration dates: When was the domain name first registered?
+When was it last updated? And when does it need to be renewed?
+
+•
+
+Name Server: Which server to ask to resolve the domain name?
+
+Screenshot 1; WHOIS tool for gathering information related to howtogeek.com website.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+34
+
+Screenshot 2; WHOIS tool for gathering information related to tryhackme.com
+
+6.Conclusion: In this experiment you learned how to take the first steps toward ethical hacking.
+Information gathering, in the form of reconnaissance, foot printing, and social engineering, is
+necessary to learn as much about the target as possible. By following the information-gathering
+methodology, ethical hackers can ensure they are not missing any steps and valuable
+information. Time spent in the information- gathering phase is well worth it to speed up and
+produce successful hacking exploits.
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+35
+
+Experiment 7: Show how to detect ARP Spoofing using open-source tool
+ARPWATCH.
+1. Aim: Objective of the module to find ARP spoofing using open source.
+2. Objectives: Detect ARP spoofing using open source tool ARPWATCH.
+3. Hardware / Software Required: ARPWATCH Tool
+4. Theory:
+Arpwatch is a tool that monitors Ethernet activity on a network. It is designed to keep track of
+Ethernet/IP address pairings (ARP activity) and alert system administrator when any changes
+occur. ARP (Address Resolution Protocol) is a protocol used to map an IP address to a MAC
+address on a local network. Arpwatch is particularly useful for detecting potential network
+attacks such as ARP spoofing or MAC address spoofing, which can be used to intercept
+network traffic or launch a man-in-the-middle attack.
+5. Methodology:
+•
+
+Installing Arpwatch
+
+Arpwatch can be installed on most Linux distributions using package manager. On Debianbased systems, you can install it using following command −
+$ sudo apt-get install arpwatch
+•
+
+Configuring Arpwatch
+
+Once Arpwatch is installed, it needs to be configured before it can start monitoring network
+activity. configuration file for Arpwatch is located at /etc/arpwatch.conf.
+Here is an example configuration file −
+# arpwatch.conf
+DEVICE=eth0
+# Email address to send alerts to
+#EMAIL_ADDRESS=root
+eth0 -a -n 192.168.2.1/25
+Next install syslog
+sudo apt-get install rsyslog
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+36
+
+Now enable arpwatch by using following command –
+systemctl enable arpwatch@eth0
+
+Then, start Arpwatch service using following command −
+sudo service arpwatch start
+Arpwatch will now begin monitoring Ethernet activity on specified network interface.
+•
+
+Arpwatch Commands and Usage To watch a specific interface, type the following
+command with ‗-i‗ and device name.
+
+arpwatch -i eth0
+So, whenever a new MAC is plugged or a particular IP is changing his MAC address on the
+network, you will notice syslog entries at ‗/var/log/syslog‗ or ‗/var/log/message‗ file.
+#tail -f/var/log/syslog
+You can also check current ARP table, by using following command.
+#arp -a
+Sample Output:
+
+ARP Spoofing (Man in Middle attack)
+Use the following command to start ARP spoofing
+arpspoof -i eth0 -t 192.168.2.3 10.0.2.2
+arpspoof -i eth0 -t 10.0.2.2 192.168.2.3
+tail -f /var/log/syslog
+Use separate terminals to execute these commands and Arpwatch must be enable and started.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+37
+
+The Arpwatch detects any changes in IP address and will be notified in the syslog messages.
+The syslog notify ethernet mismatch due to ARP spoofing.
+
+If you want to send alerts to your custom email id, then open the main configuration
+file‗/etc/sysconfig/arpwatch‗ and add the email as shown below.
+
+6. Conclusion: Arpwatch is a software or program tool for monitoring Address Resolution
+Protocol traffic on a computer network. Its main goal is to detect arp poisoning attacks like
+(e.g. ARP Poisoning, Ettercap, and Netcut) also detect intruders in your network by sending an
+email to an administrator when new Ethernet MAC addresses seen on the network.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+38
+
+Experiment 8: Demonstrate network vulnerabilities by scanning
+network using Nessus tool.
+1. Aim: Use the Nessus tool to scan the network for vulnerabilities.
+2. Objectives: Objective of the module is scan system and network analysis.
+3. Hardware / Software Required: Nessus Vulnerability Scanner | Tenable Network Security
+tool.
+4. Theory:
+Nessus is a proprietary comprehensive vulnerability scanner which is developed by Tenable
+Network Security. It is free of charge for personal use in a non-enterprise environment.
+Operation
+• Nessus allows scans for the following types of vulnerabilities:
+• Vulnerabilities that allow a remote hacker to control or access sensitive data on a system.
+• Misconfiguration (e.g. open mail relay, missing patches, etc.).
+Default passwords, a few common passwords, and blank/absent passwords on some system
+accounts. Nessus can also call Hydra (an external tool) to launch a dictionary attack.Denials of
+service against the TCP/IP stack by using malformed packets.
+5. Methodology:
+Preparation for PCI DSS audits
+On UNIX (including Mac OS X), it consists of nessusd, the Nessus daemon, which does the
+scanning, and nessus, the client, which controls scans and presents the vulnerability results to
+the user. In typical operation, Nessus begins by doing a port scan with one of its four internal
+port scanners (or it can optionally use AmapM or Nmap) to determine which ports are open on
+the target and then tries various exploits on the open ports. The vulnerability tests, available as
+subscriptions, are written in NASL(Nessus Attack Scripting Language), a scripting language
+optimized for custom network interaction. Tenable Network Security produces several dozen
+new vulnerability checks (called plugins) each week, usually on a daily basis. These checks are
+available for free to the general public; commercial customers are not allowed to use this Home
+Feed any more. The Professional Feed (which is not free) also give access to support and
+additional scripts (e.g. audit files, compliance tests, additional vulnerability detection plugins).
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+39
+
+Optionally, the results of the scan can be reported in various formats, such as plain text, XML,
+HTML and LaTeX. The results can also be saved in a knowledge base for debugging. On
+UNIX, scanning can be automated through the use of a command-line client. There exist many
+different commercial, free and open source tools for both UNIX and Windows to manage
+individual or distributed Nessus scanners. If the user chooses to do so (by disabling the option
+'safe checks'), some of Nessus' vulnerability test may try to cause vulnerable services or
+operating systems to crash. This lets a user test the resistance of a device before putting it in
+production. Nessus provides additional functionality beyond testing for known network
+vulnerabilities. For instance, it can use Windows credentials to examine patch levels on
+computers running the Windows operating system, and can perform password auditing using
+dictionary and brute force methods. Nessus 3 and later can also audit systems to make sure
+they have been configured per a specific policy, such as the NSA's guide for hardening
+Windows servers.
+
+Basic Network scanning:
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+40
+
+Advanced scanning in general search:
+
+Ntstat port scanning:
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+41
+
+Vulnerability Mapping:
+
+Policies:
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+42
+
+Plugins:
+
+General Scanning:
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+43
+
+Port Scanning:
+
+6. Conclusion:
+Running a security scanner against your systems is a very important part of the job. It is a
+system administrator or security officer‘s job to keep their systems secure and the data
+contained in them safe. Hackers have access to all the same information and tools that the rest
+of us do. Hackers run the very same tools and it is advantageous to know what the results are
+that they see if they scan your system. They find time to do the research, so we must also.
+Nessus provides a lot of functionality in one tool. It utilizes Nmap, easy to update plug-ins, and
+nice reporting tools for upper management. It is has repeatedly scored high on comparisons
+between scanners including commercial scanners that come with a hefty price tag. And of
+course as budgets tighten, remember Nessus is a free tool. The only cost is the users time in
+learning it and using it, but that is a cost associated with all tools. Nessus is an easy to learn
+tool. Using this tool and seeing the vulnerabilities will help you gain knowledge of your
+systems and help teach you how to protect them.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+44
+
+Experiment 9: Demonstrate network testbed Emulab.
+1. Aim: Demonstrate and understand network testbed Emulab.
+2. Objectives: Understanding Emu test bed setup.
+3. Hardware / Software Required: Emulab Test bed.
+4. Theory:
+Emulab is a testbed that has been developed at the University of Utah since 1999. Emulab
+can provide unlimited experimental environments in which researchers can develop, debug
+and evaluate their systems. Emulab is also designed for education. Emulab can coordinate a
+composite system that includes numerous physical computers as nodes. Each computer has
+six network interface cards. The first network interface card manages user logins, power on
+signals, power off signals, and other control signals. The other five network interface cards
+are connected to a hardware switch. Emulab can manage various virtual local area networks
+(VLANs) and connect one or more VLANs to each computer in this system. Each user
+navigates to a web interface to request the resources or access the topology of the network.
+Emulab allocates all resources within this system.
+5. Get Started with Emu lab Test bed.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+45
+
+5.1 Configuring Emulab
+An Emulab testbed is easily configured to support operational exercises. This section describes
+the steps involved in the design, setup, execution and analysis phases.
+
+1. Design Phase
+After determining the participants and developing a detailed scenario, the following
+tasks are performed:The network topology is described using an experiment script. The
+components (e.g., servers and routers) to be controlled by the participants are
+differentiated from the components that simulate the rest of the world (i.e., the context).
+The exercise monitoring infrastructure is described and the data collection mechanisms
+are configured.
+2. Setup Phase
+In the setup phase, the predefined systems are instantiated and configured as in any
+Emulab experiment. Exercise participants are given access to individual experimental
+nodes. Access control mechanisms are used to ensure that participants may only access
+the nodes “owned” by them in the scenario. However, exercise moderators are
+permitted to access all resources.
+3. Execution Phase
+During the exercise execution phase, the participants interact with the systems and
+among themselves. Their actions are monitored for further analysis after the end of the
+exercise (analysis phase). It is important that exercise moderators know how the
+exercise is evolving so that they can intervene (e.g., by injecting dynamic events) if
+necessary.
+4. Analysis Phase
+In the analysis phase, the emulation testbed is used to gather recorded data. The data is
+used to evaluate the response times, durations of actions, levels of coordination, etc.
+The data collected depends on the scope of the exercise.
+
+Example exercise setup Demo in Emulab
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+46
+
+The topology and related processes of the attack and defense scenario were as shown in Figure
+1. In the experiment, a fixed cybersecurity attack and defense scenario was used in an
+environment designed for a three-party network.
+
+During the test, participant traffic is directed to the topology through a virtual private network;
+the real traffic of the participants is recorded by Netflow Inside Topology (Figure 2). As shown
+in Figure 3, the scoreboard displays the current scores of the participants (teams).
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+47
+
+6.Conclusion
+A platform based on Emulab was demonstrated. This platform was dedicated to training and
+experience exchange. The cybersecurity attack and defense exercises provided through this
+platform trained the participants regarding the methods, techniques, and mechanisms used in
+attack and defense maneuvers.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+48
+
+10. Study of Information Technology Act, 2000 (India)
+AMENDMENTS IN IT ACT 2000
+The Information Technology Act was enacted in the year 2000 to bring in the necessary
+changes for growth of digitalisation and e-commerce transactions, and ensure safety and
+security of such transactions, thereby preventing crimes. The act was then amended to
+account for the developments in the domain, these amendments were passed by both the
+houses of Parliament in 2008 and received President’s assent on 5th February, 2009, thus
+becoming the Amendment Act. It introduced various positive developments. It was seen as
+an effort by the Government of India to create a policy that is able to maintain pace with
+the evolving technology. The Indian Computer Emergency Response Team (CERT-In) is
+responsible for administration of the Act. The amendment attempted to fill in the gaps left
+by the earlier Act, and address the security concerns. The Act was the need of the hour as
+with increasing digitalisation, the crimes in the digital space or with the help of digital aids
+also proliferated. Sending/sharing offensive content, phishing, identity theft, frauds, etc.
+were crimes which had to be brought within the ambit of penal provisions. All these factors
+led to the amendments in IT Act 2000, thus paving the way for IT Act 2008. The IT Act
+2008 revolutionized the cyber law framework of the nation. The Act addressed various
+issues such as incorporating electronic signature, inclusion of greater number of cyber
+offences, addressing the concerns pertaining to data protection, privacy, and also dealt with
+the issues related to use of digital/cyber medium for terrorism.
+The features of The IT Act, 2000 are as follows:
+1. The digital signature has been changed to an electronic signature to make it a greater
+generation-impartial act.
+2. It elaborates on offenses, penalties, and breaches.
+3. It outlines the Justice Dispensation Systems for cybercrimes.
+4. The Information Technology Act defines in a new segment that a cyber cafe is any
+facility wherein access to the net is offered by any person inside the normal business to
+the general public.
+5. It offers the constitution of the Cyber Regulations Advisory Committee.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+49
+
+6. The Information Technology Act is based totally on The Indian Penal Code, of 1860,
+The Indian Evidence Act, of 1872, The Bankers’ Books Evidence Act, of 1891, The
+Reserve Bank of India Act, of 1934, and many others.
+7. It adds a provision to Section 81, which states that the provisions of the Act shall have
+overriding effect. The provision states that nothing contained inside the Act shall limit
+any person from exercising any right conferred under the Copyright Act, of 1957.
+The Offenses and the Punishments in IT Act 2000
+The offenses and the punishments that fall under the IT Act, of 2000 are as follows: 1. Tampering with the computer source documents.
+2. Directions of Controller to a subscriber to extend facilities to decrypt information.
+3. Publishing of information that is obscene in electronic form.
+4. Penalty for breach of confidentiality and privacy.
+5. Hacking for malicious purposes.
+6. Penalty for publishing Digital Signature Certificate false in certain particulars.
+7. Penalty for misrepresentation.
+8. Confiscation.
+9. Power to investigate offenses.
+10. Protected System.
+11. Penalties for confiscation are not to interfere with other punishments.
+12. Act to apply for offense or contravention committed outside India.
+13. Publication for fraud purposes.
+14. Power of Controller to give directions.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+50
+
+Conclusion
+It is an act to show misconduct behavior for transactions executed by way of electronic
+information interchange and another approach of electronic conversation, usually referred to
+as “electronic commerce”, which contains the usage of alternatives to paper-based methods of
+communication and storage of information, to facilitate digital submission of documents with
+the Government agencies.
+
+Dr Shreema Shetty
+Cyber security Fundamental and Laws
+Sahyadri College of Engineering and Management
+
+51
+
+
